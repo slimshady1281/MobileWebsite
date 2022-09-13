@@ -1,11 +1,17 @@
 .loader {
     position: fixed;
-    left: 50%;
+     
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+
+    /*left: 50%;
     top: 50%;
     border-radius: 50%;
     width: 128px;
     height: 128px;
-    margin: -76px 0 0 -76px; 
+    margin: -76px 0 0 -76px; */
    /* border: 16px solid #f3f3f3; */
    /* border-top: 16px solid #fff;
     -webkit-animation: spin 5s linear infinite;
