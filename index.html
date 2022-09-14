@@ -1,121 +1,213 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta charset="utf-8">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<link rel="stylesheet" href="./style.css">
-<style>
-body {
-  margin: 0;
-  padding: 0;
+    <head>
+        <title>WebAR Experiment</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <style>
+        body { 
+            width: 100%; 
+            height: 100%; 
+            overflow: hidden;
+            margin: 0;
+        }
+        .container {
+            width: calc(100vw);
+            height: calc(100vh);
+            background: #000000;
+            overflow: hidden;
+            margin: 0;
+        }
+        .videoWrapper {
+            position: relative;
+            width: calc(100vw);
+            height: calc(100vh - 300px);
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        video.pepsiverse {
+            object-fit: fill;
+            width: 100vw;
+            height: calc(100vh - 280px);
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 10px;
+        }
 
-  
-  background-color:#000000;
+        @font-face {
+	 font-family: "ubuntu";
+	 font-style: italic;
+	 font-weight: 300;
+	 src: local("Lato Light Italic"), local("Lato-LightItalic"), url(https://fonts.gstatic.com/s/ubuntucondensed/v8/u-4k0rCzjgs5J7oXnJcM_0kACGMtT-Dfqw.woff2) format("woff2");
 }
-.box .button{
-  position:absolute;
- 
-  width: 200px;
-  height: 50px;
-  left: 25%;
-  bottom: 7%;
-
-  background-image: url('/waba.jpg');
-  
+ body {
+	 height: 100vh;
+	 margin: 0;
+	 background-color: #353535;
+	 font-family: "ubuntu", Arial, sans-serif;
+	 overflow-x: hidden;
+	 display: grid;
+	 place-items: center;
 }
-
-.box .button a{
-  color:white;
-  font-family:Helvetica, sans-serif;
-  font-weight:bold;
-  font-size:24px;
-  text-align: center;
-  text-decoration:none;
-  background-color:#FFA12B;
-  background-image: url('/waba.jpg');
-  display:block;
-  position:relative;
-  padding:10px 20px;
-  
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  text-shadow: 0px 1px 0px #000;
-  filter: dropshadow(color=#000, offx=0px, offy=1px);
-  
-  -webkit-box-shadow:inset 0 1px 0 #FFE5C4, 0 10px 0 #915100;
-  -moz-box-shadow:inset 0 1px 0 #FFE5C4, 0 10px 0 #915100;
-  box-shadow:inset 0 1px 0 #FFE5C4, 0 10px 0 #915100;
-  
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+ a {
+	 text-decoration: none;
+	 color: #9ca0b1;
 }
-
-.box .button a:active{
-  top:10px;
-  background-color:#F78900;
-  background-image: url('/waba.jpg');
-  -webkit-box-shadow:inset 0 1px 0 #FFE5C4, inset 0 -3px 0 #915100;
-  -moz-box-shadow:inset 0 1px 0 #FFE5C4, inset 0 -3pxpx 0 #915100;
-  box-shadow:inset 0 1px 0 #FFE5C4, inset 0 -3px 0 #915100;
+ .wrapper {
+	 text-align: center;
 }
-
-.box .button:after{
-  content:"";
-  height:100%;
-  width:100%;
-  padding:4px;
-  position: absolute;
-  bottom:-15px;
-  left:-4px;
-  z-index:-1;
-  background-color:#2B1800;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-}
-
-.box
-{
+ .wrapper h1 {
     position: relative;
-    width: 100%;
-    max-width: 390px;
-    height: 844px;
-    color: white;
+    top: 45px;
+	 color: #fff;
+	 font-size: 56px;
+	 text-transform: uppercase;
+	 font-weight: 700;
+	 font-family: "Josefin Sans", sans-serif;
+	 background: linear-gradient(to right, #09aba5 10%, #25abe8 50%, #57d75b 60%);
+	 background-size: auto auto;
+	 background-clip: border-box;
+	 background-size: 200% auto;
+	 color: #fff;
+	 background-clip: text;
+	 text-fill-color: transparent;
+	 -webkit-background-clip: text;
+	 -webkit-text-fill-color: transparent;
+	 animation: textclip 1.5s linear infinite;
+	 display: inline-block;
+     margin-top: 40px;
+}
+ @keyframes textclip {
+	 to {
+		 background-position: 200% center;
+	}
 }
 
-.box img {
-  width: 390px;
-  height: 844px;
-  position: relative;
-}
-</style>
-</head>
-<body>
+    .buttonWrapper {
+        width: 340px;
+        position: absolute;
+        right: 0;
+        left: 0;
+        margin: auto;
+        bottom: 95px;
+        text-align: center;
+        color: #000;
+        text-transform: uppercase;
+        font-weight: 600;
+        cursor: pointer;
+        display: inline-block;
+        background-color: #0058b9;
+        border: 3px solid #00d7c3;
+        border-radius: 6px;
+        -webkit-transition: all .15s ease-in-out;
+        transition: all .15s ease-in-out;
+        color: #00d7c3;
+        padding: 14px 25px;
+        box-shadow: 0 0 10px 0 #5097e7 inset, 0 0 20px 2px #5097e7;
+        border: 3px solid #5097e7;
+    }
 
-    <div class="box">
-        <img src="bg2.gif" alt="bg">
+    .buttonWrapper:hover {
+        box-shadow: 0 0 10px 0 #5097e7 inset, 0 0 20px 2px #5097e7;
+        border: 3px solid #5097e7;
+    }
 
-        <div class="button">
-            <a href="loader.html">Start Experience</a>
-          </div>
+    .buttonWrapper a {
+        text-decoration: none;
+        color: #ffffff;
+        font-weight: normal;
+        font-size: 30px;
+        text-transform: capitalize;
+    }
 
-          <div class="container">
-            <p class="glitch">
-              <span aria-hidden="true">Welcome to PepsiVerse!!!</span>
-               Welcome to PepsiVerse!!!
-              <span aria-hidden="true">Welcome to PepsiVerse!!!</span>
-            </p>
-          </div>
+    @media screen and (min-width: 990px) {
+        .wrapper h1 {
+            font-size: 50px;
+            position: relative;
+            top: 0;
+        }
+        .buttonWrapper {
+            width: 220px;
+            padding: 12px 25px;
+            box-shadow: none;
+            border: none;
+        }
+        .buttonWrapper a {
+            font-size: 18px;
+        }
+        video.pepsiverse {
+            object-fit: none;
+        }
+    }
 
-    </div>
+    @media screen and (min-device-width:320px) and (max-device-width:767px) and (orientation:landscape) {
+        .wrapper h1 {
+            top: 0;
+            font-size: 32px; 
+            margin-top: 20px;
+        }
+        .videoWrapper {
+            height: calc(100vh - 140px);
+        }
+        video.pepsiverse {
+            object-fit: contain;
+            height: calc(100vh - 80px);
+        }
+        .buttonWrapper {
+            right: 46px;
+            bottom: 35px;
+            padding: 7px 12px;
+        }
+        .buttonWrapper a {
+            font-size: 16px;
+        }
+    }
 
+    @media screen and (min-device-width:768px) and (max-device-width:1024px) and (orientation:landscape){
+        .wrapper h1 {
+            top: 0;
+            font-size: 32px; 
+            margin-top: 20px;
+        }
+        .videoWrapper {
+            height: calc(100vh - 140px);
+        }
+        video.pepsiverse {
+            object-fit: contain;
+            height: calc(100vh - 80px);
+        }
+        .buttonWrapper {
+            right: 46px;
+            bottom: 35px;
+            padding: 7px 12px;
+        }
+        .buttonWrapper a {
+            font-size: 16px;
+        }
+
+    }
     
+			
+</style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="wrapper">
+                <h1>Welcome to PepsiVerse</h1>
+            </div>
+            <div class="videoWrapper">
+                <video loop="true" allowfullscreen autoplay muted
+                    class="pepsiverse">
+                    <source src="pepsi.mp4" type="video/mp4" />
+                </video>
+            </div>
+            <button class="buttonWrapper">
+                <a class="animated-button" href="spinner.html"
+                    style='text-decoration:none;'>Start Experiment</a>
+                <!-- <button type="submit"><img src="but.png"></button>-->
+            </button>
 
+        </div>
 
-   
-
-
-</body>
+    </body>
 </html>
