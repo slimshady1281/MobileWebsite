@@ -144,11 +144,11 @@
         var db = indexedDB.open("dummy_indexdb", 1); // iOS 14.6 fix; the call to open indexdb hangs forever otherwise
 
         const buildUrl = "Build";
-        const loaderUrl = buildUrl + "/webar.loader.js";
+        const loaderUrl = buildUrl + "/webar2.loader.js";
         const config = {
-            dataUrl: buildUrl + "/webar.data",
-            frameworkUrl: buildUrl + "/webar.framework.js",
-            codeUrl: buildUrl + "/webar.wasm",
+            dataUrl: buildUrl + "/webar2.data",
+            frameworkUrl: buildUrl + "/webar2.framework.js",
+            codeUrl: buildUrl + "/webar2.wasm",
         streamingAssetsUrl: "StreamingAssets",
             companyName: "PepsiCo",
             productName: "ZappAR",
