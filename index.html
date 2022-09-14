@@ -25,7 +25,6 @@
             overflow: hidden;
         }
         .pepsiverse {
-            object-fit: fill;
             width: 100vw;
             height: calc(100vh - 280px);
             position: absolute;
@@ -33,6 +32,8 @@
             left: 0;
             border-radius: 10px;
             background-image: url("bg.gif");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
         }
 
         @font-face {
@@ -137,7 +138,8 @@
             font-size: 18px;
         }
         .pepsiverse {
-            object-fit: none;
+            background-size: contain;
+            background-position: center;
         }
     }
 
@@ -151,8 +153,9 @@
             height: calc(100vh - 140px);
         }
         .pepsiverse {
-            object-fit: contain;
             height: calc(100vh - 80px);
+            background-size: contain;
+            background-position: center;
         }
         .buttonWrapper {
             right: 46px;
@@ -174,7 +177,6 @@
             height: calc(100vh - 140px);
         }
         .pepsiverse {
-            object-fit: contain;
             height: calc(100vh - 80px);
         }
         .buttonWrapper {
